@@ -17,29 +17,42 @@
 // global.console.log();
 
 //Path Module
-const path = require("path");
-var pathObj = path.parse(__filename);
-console.log(pathObj);
+// const path = require("path");
+// var pathObj = path.parse(__filename);
+// console.log(pathObj);
 
-//OS Module
+// //OS Module
 
-const os = require("os");
+// const os = require("os");
 
-var totalMemory = os.totalmem();
-var freeMemory = os.freemem();
+// var totalMemory = os.totalmem();
+// var freeMemory = os.freemem();
 
-console.log("Total Memory: " + totalMemory);
+// console.log("Total Memory: " + totalMemory);
 
-console.log(`Total Memory: ${totalMemory}`);
-console.log(`free Memory: ${freeMemory}`);
+// console.log(`Total Memory: ${totalMemory}`);
+// console.log(`free Memory: ${freeMemory}`);
 
-// File System Module
+// // File System Module
 
-const fs = require("fs");
-const file = fs.readdirSync("./");
-console.log(file);
+// const fs = require("fs");
+// const file = fs.readdirSync("./");
+// console.log(file);
 
-fs.readdir("./", function (ex, files) {
-  if (ex) console.log("Error", ex);
-  else console.log("Result", files);
+// fs.readdir("./", function (ex, files) {
+//   if (ex) console.log("Error", ex);
+//   else console.log("Result", files);
+// });
+
+//Event Module
+const EventEmitter = require("events"); //Class
+const emitter = new EventEmitter();
+
+//Order is important
+//Register a listener
+emitter.on("messageLogged", function () {
+  console.log("Listener call");
 });
+
+//Raise a event
+emitter.emit("messageLogged"); //Making a noise, produce -signalling
