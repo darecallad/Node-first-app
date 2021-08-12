@@ -46,13 +46,14 @@
 
 //Event Module
 const EventEmitter = require("events"); //Class
-const emitter = new EventEmitter();
 
 //Order is important
+
+const Logger = require("./logger");
+const logger = new Logger();
+
 //Register a listener
-emitter.on("messageLogged", (arg) => {
+logger.on("messageLogged", (arg) => {
   console.log("Listener call", arg);
 });
-
-const log = require("./logger");
-log("message");
+logger.log("message");
