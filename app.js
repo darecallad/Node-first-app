@@ -45,15 +45,20 @@
 // });
 
 //Event Module
-const EventEmitter = require("events"); //Class
+// const EventEmitter = require("events"); //Class
 
 //Order is important
+
+// const Logger = require("./logger");
+// const logger = new Logger();
+
+// //Register a listener
+// logger.on("messageLogged", (arg) => {
+//   console.log("Listener call", arg);
+// });
+// logger.log("message");
 
 const Logger = require("./logger");
 const logger = new Logger();
 
-//Register a listener
-logger.on("messageLogged", (arg) => {
-  console.log("Listener call", arg);
-});
-logger.log("message");
+logger.log("Test 123");
