@@ -50,9 +50,9 @@ const emitter = new EventEmitter();
 
 //Order is important
 //Register a listener
-emitter.on("messageLogged", function () {
-  console.log("Listener call");
+emitter.on("messageLogged", (arg) => {
+  console.log("Listener call", arg);
 });
 
-//Raise a event
-emitter.emit("messageLogged"); //Making a noise, produce -signalling
+const log = require("./logger");
+log("message");
